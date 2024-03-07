@@ -1,0 +1,23 @@
+# Initial Setup  
+    - Create-react-app 
+    - install tailwindcss
+
+# Features
+- Login/Sign Up page
+    - Sign In /Sign Up form
+    - redirect to browers page
+
+- Browser (Access after Auth)
+    - Header 
+    - Main Movie
+        => Trailer in Background
+        => Movie Title & Description
+        => Movie Suggestions
+        => Movie List (Multiple movies | vertical Scrollable)
+
+- NetFlix + GPT 
+    - Search Bar
+    - Movie Suggestions
+
+
+

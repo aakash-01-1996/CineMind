@@ -1,7 +1,11 @@
 import "./App.css";
 
 function App() {
-  return <div className="App">CineMind, Netflix + GPT</div>;
+  return (
+    <div className="p-2 m-2 text-3xl font-semibold ">
+      CineMind, Netflix + GPT
+    </div>
+  );
 }
 
 export default App;
