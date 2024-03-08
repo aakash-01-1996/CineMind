@@ -5,7 +5,8 @@
 # Features
 - Login/Sign Up page
     - Sign In /Sign Up form
-    - redirect to browers page
+    - redirect to browers page (Routing)
+
 
 - Browser (Access after Auth)
     - Header 
@@ -21,3 +22,25 @@
 
 
 
+// Task Completed: 
+    - Header : Sign In/ Sign Up form
+    - Form Validation (Through Regex..) || useRef  
+
+
+
+// Things to Add:
+ - Password Match | Name Validation
+
+
+
+// FireBase: 
+- Install FireBase
+- Login to FireBase (gmail.com) : firebase login
+- FireBase Init
+- ScreenShots
+- npm run build (Give us a build folder)
+- firebase deploy
+
+
+// Authentication
+- Create SignUp User account
