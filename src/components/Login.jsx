@@ -3,7 +3,7 @@ import Header from "./Header";
 import { checkValidData } from "../utils/validation";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
-import { useNavigate } from "react-router-dom";
+
 import { useDispatch } from "react-redux";
 import {addUser} from "../utils/userSlice";
 
@@ -11,7 +11,7 @@ import {addUser} from "../utils/userSlice";
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errMessage, setErrMessage] = useState();
-  const navigate = useNavigate();
+  
   const dispatch = useDispatch();
   
   const name = useRef(null);
@@ -56,7 +56,7 @@ const Login = () => {
                   photoURL: photoURL
               })
             );
-            navigate("/browse");
+            
           })
           .catch((error) => {
             setErrMessage(error.message);
@@ -75,8 +75,8 @@ const Login = () => {
   .then((userCredential) => {
     // Signed in 
     const user = userCredential.user;
-    console.log(user);
-    navigate("/browse");
+    
+    
 
     
   })
