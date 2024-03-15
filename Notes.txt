@@ -1,3 +1,4 @@
+# Stage 1:
 # Initial Setup  
     - Create-react-app 
     - install tailwindcss
@@ -6,7 +7,6 @@
 - Login/Sign Up page
     - Sign In /Sign Up form
     - redirect to browers page (Routing)
-
 
 - Browser (Access after Auth)
     - Header 
@@ -20,27 +20,35 @@
     - Search Bar
     - Movie Suggestions
 
+- FireBase 
+    - Install FireBase
+    - Login to FireBase (gmail.com) : firebase login
+    - FireBase Init
+    - ScreenShots
+    - npm run build (Give us a build folder)
+    - firebase deploy
 
-
+===================================================
+Stage 2: 
 // Task Completed: 
     - Header : Sign In/ Sign Up form
     - Form Validation (Through Regex..) || useRef  
-
-
 
 // Things to Add:
  - Password Match | Name Validation
 
 
-
-// FireBase: 
-- Install FireBase
-- Login to FireBase (gmail.com) : firebase login
-- FireBase Init
-- ScreenShots
-- npm run build (Give us a build folder)
-- firebase deploy
-
-
 // Authentication
 - Create SignUp User account
+
+
+// BugFix:
+- Display name/ Profile Update
+- Login/ Signup redirect
+- 
+
+// Changes:
+- Unsubscribe to callback : OnAuthStateChanged
+
+===================================================
+Stage 3: 
