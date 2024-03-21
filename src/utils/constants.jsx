@@ -8,3 +8,13 @@ export const BKGRND_IMG =
 
 export const PHOTO_URL = 
     "https://occ-0-444-472.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABeuqjuQsRgqEDlibtJTI5BMf8IxhLlLOeIT6xI4TL57mqv7XHja43gx02S8pZVe8JNGRQXjnrUk1VcsTXqi83tFKPI6OR3k.png?r=bd7"
+
+
+    export const API_OPTIONS =  {
+        method: 'GET',
+        headers: {
+          accept: 'application/json',
+          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZDc0Y2JmZjZmZDIxMDhkNDVhYjAxZTQ1MjNlY2Y0MCIsInN1YiI6IjY1ZmIyMmZhNWJlMDBlMDE3YzZlOTNiZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BCMFkiP0r6de4FkZvlV1otawuAoGIsNj4cVxr0DOW_k'
+        }
+      };
+      

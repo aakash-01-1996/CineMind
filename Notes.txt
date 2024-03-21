@@ -52,3 +52,12 @@ Stage 2:
 
 ===================================================
 Stage 3: 
+// TMDB API & Create APP : GET Access Token 
+    - GET Data from NOWPlaying Movies
+    - Create custom hooks
+    - Update Store with Movies Data
+    - Planning for MainContainer & SecondaryContainer
+    - Fetch Data for Trailer Video & Embed YT videos : Autoplay&mute
+    - Update Store with Movies Data
+    
+    
