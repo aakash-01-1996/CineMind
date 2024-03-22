@@ -60,4 +60,5 @@ Stage 3:
     - Fetch Data for Trailer Video & Embed YT videos : Autoplay&mute
     - Update Store with Movies Data
     
-    
+// GPT Search Interface
+    - 
