@@ -3,11 +3,10 @@ import Header from "./Header";
 import { checkValidData } from "../utils/validation";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase";
-
+import { PHOTO_URL } from "../utils/constants";
 import { useDispatch } from "react-redux";
 import {addUser} from "../utils/userSlice";
 import { BKGRND_IMG } from "../utils/constants";
-import { PHOTO_URL } from "../utils/constants";
 
 
 const Login = () => {
@@ -23,8 +22,8 @@ const Login = () => {
 
   const HandleBtnClick = () => {
     // Validate form data..
-    console.log(email.current.value);
-    console.log(password.current.value);
+    // console.log(email.current.value);
+    // console.log(password.current.value);
     
     
 
