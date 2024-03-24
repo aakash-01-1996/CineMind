@@ -5,6 +5,11 @@ import { addUpcomingMovies } from "../utils/moviesSlice";
 
 
 const useUpcomingMovies = () => {
+
+
+
+
+
   const dispatch = useDispatch();
 
   const getUpcomingMovies = async () =>{
@@ -17,6 +22,7 @@ const useUpcomingMovies = () => {
     };
 
   useEffect(() => {
+    
     getUpcomingMovies();
 }, []);
 };
