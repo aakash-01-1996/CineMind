@@ -62,9 +62,9 @@ const GPTSearchBar = () => {
   const selectedLang = lang[langKey] ? langKey : "en";
 
   return (
-    <div className="pt-[10%] flex justify-center">
+    <div className="pt-[32%] md:p-0 md:pt-[10%] flex justify-center">
       <form
-        className=" w-1/2  bg-black  grid grid-cols-12"
+        className="w-3/4 md:w-1/2  bg-black  grid grid-cols-12 rounded-lg"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
@@ -74,7 +74,7 @@ const GPTSearchBar = () => {
           placeholder={lang[selectedLang].gptSearchPlaceholder}
         />
         <button
-          className=" col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg"
+          className=" col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg "
           onClick={handleGPTSSearchClick}
         >
           {lang[selectedLang].search}

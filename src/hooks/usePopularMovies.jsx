@@ -7,7 +7,7 @@ const usePopularMovies = () => {
   // Fetch Data from TMDB API and Update Store
   const dispatch = useDispatch();
 
-  const popularMovies = useSelector((store) => store.movies.popularMovies);
+  const PopularMovies = useSelector((store) => store.movies.PopularMovies);
 
   const getPopularMovies = async () => {
     const data = await fetch(
@@ -21,7 +21,7 @@ const usePopularMovies = () => {
   };
 
   useEffect(() => {
-    if (!popularMovies) getPopularMovies();
+    !PopularMovies && getPopularMovies();
   }, []);
 };
 

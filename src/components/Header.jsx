@@ -60,7 +60,7 @@ const Header = () => {
       <img className="mt-2 w-44 mx-auto md:mx-0" alt="netflixLogo" src={LOGO} />
 
       {user && (
-        <div className="flex p-1">
+        <div className="flex p-1 justify-between">
           {showGPTSearch && (
             <select
               className="opacity-75 rounded-lg bg-slate-500 text-white hover:text-black"
@@ -81,7 +81,7 @@ const Header = () => {
             {showGPTSearch ? " Home Page" : "GPT Search"}
           </button>
           <img
-            className="hover:cursor-pointer  rounded-md hidden md:block w-12 h-12  justify-center"
+            className=" hover:cursor-pointer  rounded-md hidden md:block w-12 h-12  justify-center"
             alt="img"
             src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
           />
