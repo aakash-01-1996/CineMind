@@ -6,14 +6,17 @@ This project was built with React.js, OpenAI API, Redux, and Firebase.
 ## Getting Started
 
 Run npm install to install everything from package.json
+
 #### `npm install`
 
 Then run the development server:
-#### `npm run dev` or  `yarn dev`
+
+#### `npm run dev` or `yarn dev`
 
 Open http://localhost:3000 and you'll be able to see the app appear.
 
 ## Features
+
 - [x] Login Form
 - [x] Form Validation
 - [x] User Home Page
@@ -30,9 +33,9 @@ Open http://localhost:3000 and you'll be able to see the app appear.
 - [x] Added Multiple profiles auth
 
 ## ToDo
+
 - [x] Complete all task!
 
 ## Noncompulsory
+
 - [ ] Generate your own OpenAI key and play
-
-

@@ -37,15 +37,14 @@ Stage 2:
 // Things to Add:
  - Password Match | Name Validation
 
-
 // Authentication
 - Create SignUp User account
-
 
 // BugFix:
 - Display name/ Profile Update
 - Login/ Signup redirect
-- 
+- Firebase Auth
+
 
 // Changes:
 - Unsubscribe to callback : OnAuthStateChanged
@@ -59,6 +58,5 @@ Stage 3:
     - Planning for MainContainer & SecondaryContainer
     - Fetch Data for Trailer Video & Embed YT videos : Autoplay&mute
     - Update Store with Movies Data
+
     
-// GPT Search Interface
-    - 
