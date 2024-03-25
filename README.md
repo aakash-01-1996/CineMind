@@ -39,3 +39,10 @@ Open http://localhost:3000 and you'll be able to see the app appear.
 ## Noncompulsory
 
 - [ ] Generate your own OpenAI key and play
+
+<img width="1694" alt="Screenshot 2024-03-24 at 6 20 16 PM" src="https://github.com/aakash-01-1996/CineMind/assets/129121618/ec1b4c8a-c42e-436a-822b-b1a7edfaff56">
+<img width="687" alt="Screenshot 2024-03-24 at 6 20 25 PM" src="https://github.com/aakash-01-1996/CineMind/assets/129121618/23d48929-5363-4229-91c7-fc9390af0e75">
+<img width="1687" alt="Screenshot 2024-03-24 at 6 20 46 PM" src="https://github.com/aakash-01-1996/CineMind/assets/129121618/9d29fc87-5a01-4053-ab7d-2a0882c0789a">
+<img width="1659" alt="Screenshot 2024-03-24 at 6 21 43 PM" src="https://github.com/aakash-01-1996/CineMind/assets/129121618/41d12682-6423-484f-b039-0c0cfe89ee05">
+<img width="1682" alt="Screenshot 2024-03-24 at 6 21 58 PM" src="https://github.com/aakash-01-1996/CineMind/assets/129121618/4e192efd-dbb4-48d4-95b7-f3dbec2b9cc6">
+<img width="1681" alt="Screenshot 2024-03-24 at 6 22 15 PM" src="https://github.com/aakash-01-1996/CineMind/assets/129121618/12432557-b377-47e2-9f10-0964630a2e6f">
