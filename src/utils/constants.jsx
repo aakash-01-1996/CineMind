@@ -11,7 +11,8 @@ export const API_OPTIONS = {
   method: "GET",
   headers: {
     accept: "application/json",
-    Authorization: "", // Replace "" with your TMDB Key
+    Authorization:
+      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0ZDc0Y2JmZjZmZDIxMDhkNDVhYjAxZTQ1MjNlY2Y0MCIsInN1YiI6IjY1ZmIyMmZhNWJlMDBlMDE3YzZlOTNiZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.BCMFkiP0r6de4FkZvlV1otawuAoGIsNj4cVxr0DOW_k", // Replace "" with your TMDB Key
   },
 };
 
@@ -24,4 +25,4 @@ export const SUPPORTED_LANG = [
   { identifier: "chi", name: "Chinese" },
 ];
 
-export const OPENAI_KEY = ""; // Replace "" with your OpenAI Key
+export const OPENAI_KEY = "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"; // Replace "" with your OpenAI Key

@@ -39,7 +39,7 @@ const GPTSearchBar = () => {
     });
 
     if (!GPTResults.choices) {
-      //ToDo: Write Error Handling
+      // Err Handling
     }
     console.log(GPTResults.choices[0]?.message?.content);
 
