@@ -1,4 +1,4 @@
-# Book My Show
+# CineMind
 
 Designed Netflix with ChatGPT (OpenAI) API for enhanced video streaming experience.
 This project was built with React.js, OpenAI API, Redux, and Firebase.
