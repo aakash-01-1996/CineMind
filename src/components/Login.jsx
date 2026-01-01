@@ -44,7 +44,7 @@ const Login = () => {
 
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL: { PHOTO_URL },
+            photoURL: PHOTO_URL,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -74,7 +74,7 @@ const Login = () => {
       )
         .then((userCredential) => {
           // Signed in
-          const user = userCredential.user;
+          // User info is handled by onAuthStateChanged in Header
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -109,8 +109,9 @@ const Login = () => {
         </h1>
         {!isSignInForm && (
           <input
+            ref={name}
             type="text"
-            placeholder=" First name"
+            placeholder=" Full Name"
             className="p-3 my-3 text-white w-full bg-gray-700 rounded-md"
           />
         )}
@@ -118,7 +119,7 @@ const Login = () => {
         {!isSignInForm && (
           <input
             type="text"
-            placeholder=" Last name"
+            placeholder=" Phone Number (optional)"
             className="p-3 my-3 text-white w-full bg-gray-700 rounded-md"
           />
         )}

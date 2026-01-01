@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import lang from "../utils/languageConstants";
 import { useDispatch, useSelector } from "react-redux";
-import openai from "../utils/openai";
 import { API_OPTIONS } from "../utils/constants";
 import { addGPTMovieResult } from "../utils/gptSlice";
 
@@ -9,77 +8,117 @@ const GPTSearchBar = () => {
   const dispatch = useDispatch();
   const langKey = useSelector((store) => store.config.lang);
   const searchText = useRef(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
-  // USe TMDB API for each movie
-  const searchMovieTMDB = async (movie) => {
+  // Search movies using TMDB API
+  const searchMovieTMDB = async (query) => {
     const data = await fetch(
       "https://api.themoviedb.org/3/search/movie?query=" +
-        movie +
+        encodeURIComponent(query) +
         "&include_adult=false&language=en-US&page=1",
       API_OPTIONS
     );
-
     const json = await data.json();
     return json.results;
   };
 
-  const handleGPTSSearchClick = async () => {
-    console.log(searchText.current.value);
-
-    //Make API call to OpenAI library with the input text in the search bar and display movie resuts
-
-    const gptQuery =
-      "Act as a Movie recommendation system and suggest some movies for the query: " +
-      searchText.current.value +
-      ". only give me names of 7 movies, comma separated like the example result given ahead. Example Result: Gravity, Interstellar, Avengers, Spirderman, Dhamaka, Freddy, Mr.Bean Holidays";
-
-    const GPTResults = await openai.chat.completions.create({
-      messages: [{ role: "user", content: gptQuery }],
-      model: "gpt-3.5-turbo",
-    });
-
-    if (!GPTResults.choices) {
-      // Err Handling
-    }
-    console.log(GPTResults.choices[0]?.message?.content);
-
-    // List of 7 movies
-    const gptMovies = GPTResults.choices[0]?.message?.content.split(",");
-
-    // Movies return in array..[]
-    const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
-    // result will be arr of promises [promise, promise,promise,promise,promise,promise,promise]
-
-    const tmdbResults = await Promise.all(promiseArray);
-    console.log(tmdbResults);
-
-    dispatch(
-      addGPTMovieResult({ movieNames: gptMovies, movieResult: tmdbResults })
+  // Get movie recommendations from TMDB based on a movie ID
+  const getRecommendations = async (movieId) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}/recommendations?language=en-US&page=1`,
+      API_OPTIONS
     );
+    const json = await data.json();
+    return json.results;
+  };
+
+  // Get similar movies from TMDB
+  const getSimilarMovies = async (movieId) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/movie/${movieId}/similar?language=en-US&page=1`,
+      API_OPTIONS
+    );
+    const json = await data.json();
+    return json.results;
+  };
+
+  const handleSearchClick = async () => {
+    const query = searchText.current.value?.trim();
+    if (!query) return;
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      // First, search for movies matching the query
+      const searchResults = await searchMovieTMDB(query);
+
+      if (!searchResults || searchResults.length === 0) {
+        setError("No movies found. Try a different search term.");
+        setLoading(false);
+        return;
+      }
+
+      // Get the first result to find recommendations
+      const firstMovie = searchResults[0];
+      
+      // Fetch recommendations and similar movies
+      const [recommendations, similarMovies] = await Promise.all([
+        getRecommendations(firstMovie.id),
+        getSimilarMovies(firstMovie.id),
+      ]);
+
+      // Create categorized results
+      const movieNames = [
+        `Search Results: "${query}"`,
+        `Recommended for "${firstMovie.title}"`,
+        `Similar to "${firstMovie.title}"`,
+      ];
+
+      const movieResults = [
+        searchResults.slice(0, 10),
+        recommendations.slice(0, 10),
+        similarMovies.slice(0, 10),
+      ];
+
+      dispatch(addGPTMovieResult({ movieNames, movieResults }));
+    } catch (err) {
+      console.error("Search error:", err);
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Check if langKey exists in lang object, otherwise fallback to a default language
   const selectedLang = lang[langKey] ? langKey : "en";
 
   return (
-    <div className="pt-[32%] md:p-0 md:pt-[10%] flex justify-center">
+    <div className="pt-[32%] md:p-0 md:pt-[10%] flex flex-col items-center">
       <form
-        className="w-3/4 md:w-1/2  bg-black  grid grid-cols-12 rounded-lg"
+        className="w-3/4 md:w-1/2 bg-black grid grid-cols-12 rounded-lg"
         onSubmit={(e) => e.preventDefault()}
       >
         <input
           ref={searchText}
           type="text"
-          className="p-4 m-4 col-span-9"
+          className="p-4 m-4 col-span-9 rounded-lg"
           placeholder={lang[selectedLang].gptSearchPlaceholder}
         />
         <button
-          className=" col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg "
-          onClick={handleGPTSSearchClick}
+          className="col-span-3 m-4 py-2 px-4 bg-red-700 text-white rounded-lg hover:bg-red-800 disabled:opacity-50"
+          onClick={handleSearchClick}
+          disabled={loading}
         >
-          {lang[selectedLang].search}
+          {loading ? "..." : lang[selectedLang].search}
         </button>
       </form>
+      {error && (
+        <p className="text-red-500 mt-4 bg-black bg-opacity-75 px-4 py-2 rounded">
+          {error}
+        </p>
+      )}
     </div>
   );
 };
