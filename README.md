@@ -5,6 +5,7 @@ This project was built with React.js, OpenAI API, Redux, and Firebase.
 
 ## Live Link
 
+https://cine-mind-nu.vercel.app/
 
 ## Snapshots
 
